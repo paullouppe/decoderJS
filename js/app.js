@@ -27,7 +27,14 @@ let code = {
     "1": ".____",
     "2": "..___",
     "3": "...__",
-    characters: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m" , "o", "p" , "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1"]
+    "4": "...._",
+    "5": ".....",
+    "6": "_....",
+    "7": "__...",
+    "8": "___..",
+    "9": "____.",
+    "0": "_____",
+    characters: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m" , "o", "p" , "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 };
 
 $(document).ready(function(){
@@ -35,6 +42,7 @@ $(document).ready(function(){
     $("#point").on("click", point);
     $("#dash").on("click", dash);
     $("#space").on("click", space);
+    $("#spacespace").on("click", spacespace);
 });
 
 function fait(){
@@ -43,7 +51,7 @@ function fait(){
     let phrase = "";
     arrayText.forEach((word)=>{
         let letter = "";
-        if (word === " "){
+        if (word === "/"){
             letter = " ";
         }else {
             code.characters.forEach((element) => {
@@ -67,5 +75,9 @@ function dash(){
 }
 function space(){
     $('#field').val($('#field').val() + ' ');
+    fait();
+}
+function spacespace(){
+    $('#field').val($('#field').val() + '/');
     fait();
 }
